@@ -135,7 +135,7 @@ INTERRUPT_HANDLER(IRQ_Handler_UART1, 18) {
 					send_str("ERR");
 				}
 				send_str("\n");
-				pntr = -1;
+				pntr = 0;
 			}
 			break;
 	}
