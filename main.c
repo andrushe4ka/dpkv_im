@@ -45,6 +45,7 @@ uint16_t get_arg(char* offset) {
 	while (i--) {
 		r += m * (*offset - 48);
 		m *= 10;
+		offset--;
 	}
 	return(r);
 }
