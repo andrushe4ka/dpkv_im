@@ -7,7 +7,7 @@ SOURCE=main
 OUTPUT_DIR=build/
 .PHONY: all
 all: $(OUTPUT_DIR)main.ihx
-$(OUTPUT_DIR)main.ihx: $(OUTPUT_DIR)stm8s_clk.rel $(OUTPUT_DIR)stm8s_uart1.rel $(OUTPUT_DIR)stm8s_gpio.rel $(OUTPUT_DIR)stm8s_tim2.rel $(OUTPUT_DIR)stm8s_tim4.rel $(OUTPUT_DIR)stm8s_adc1.rel $(OUTPUT_DIR)debug_lib.rel
+$(OUTPUT_DIR)main.ihx: main.c $(OUTPUT_DIR)stm8s_clk.rel $(OUTPUT_DIR)stm8s_uart1.rel $(OUTPUT_DIR)stm8s_gpio.rel $(OUTPUT_DIR)stm8s_tim2.rel $(OUTPUT_DIR)stm8s_tim4.rel $(OUTPUT_DIR)stm8s_adc1.rel $(OUTPUT_DIR)debug_lib.rel
 	$(CC) $(CFLAGS) -I $(INCLUDEPATH) -D $(DEFINES) -o $(OUTPUT_DIR) $(SOURCE).c $(OUTPUT_DIR)stm8s_clk.rel $(OUTPUT_DIR)stm8s_uart1.rel $(OUTPUT_DIR)stm8s_gpio.rel $(OUTPUT_DIR)stm8s_tim2.rel $(OUTPUT_DIR)stm8s_tim4.rel $(OUTPUT_DIR)stm8s_adc1.rel $(OUTPUT_DIR)debug_lib.rel
 $(OUTPUT_DIR)stm8s_clk.rel: $(SRCPATH)stm8s_clk.c $(INCLUDEPATH)stm8s_conf.h
 	$(CC) -c $(CFLAGS) -I $(INCLUDEPATH) -D $(DEFINES) -o $(OUTPUT_DIR) $(SRCPATH)stm8s_clk.c
